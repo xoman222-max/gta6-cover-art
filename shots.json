@@ -1,5 +1,1 @@
-[
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
-]
+[{"h":1080,"name":"1-cover.jpg","query":"?shot=cover&layout=hero-duo&theme=sunset&photo=pier&photo2=boulevard&caption=Sunset%20Heist&size=1920x1080","w":1920},{"h":720,"name":"2-editor.jpg","query":"?shot=editor&layout=hero-duo&theme=sunset&photo=pier&caption=Sunset%20Heist","w":1280},{"h":1350,"name":"3-cover.jpg","query":"?shot=cover&layout=trio-stripes&theme=neon&photo=boulevard&caption=Boulevard%20Queen&size=1080x1350","w":1080},{"h":720,"name":"4-editor.jpg","query":"?shot=editor&layout=quad-grid&theme=midnight&photo=boulevard&photo2=pier&caption=Midnight%20Run","w":1280}]

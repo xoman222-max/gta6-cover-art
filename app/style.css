@@ -1,12 +1,46 @@
-html, body { margin: 0; height: 100%; background: #f2f0f4; color: #1d1b22; font: 15px/1.4 system-ui, sans-serif; }
-.app { display: flex; gap: 32px; align-items: center; justify-content: center; height: 100%; padding: 24px; box-sizing: border-box; }
-.controls { display: flex; flex-direction: column; gap: 14px; width: 280px; }
-.controls h1 { margin: 0; font-size: 28px; }
-.controls p { margin: 0; color: #5c5866; }
-label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
-input[type=text] { font: inherit; padding: 8px; border: 1px solid #c9c4d1; border-radius: 6px; }
-button { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 6px; background: #1d1b22; color: #fff; cursor: pointer; }
-canvas { width: min(70vh, 60vw); height: min(70vh, 60vw); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
-body.shot-cover .controls { display: none; }
-body.shot-cover .app { padding: 0; }
-body.shot-cover canvas { width: 100vw; height: 100vh; box-shadow: none; }
+/* Vice City Cover Studio — dark neon editor chrome. The cover art itself is
+   painted on canvas (see src/cover-painter.js); this file only styles the
+   editor around it. System font stack only; nothing is fetched. */
+html, body { margin: 0; min-height: 100%; background: #0d0716; color: #f3eefc; font: 15px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.studio { display: flex; gap: 24px; align-items: flex-start; padding: 20px; box-sizing: border-box; }
+.controls { width: 320px; flex: 0 0 320px; display: flex; flex-direction: column; gap: 16px; }
+.controls h1 { margin: 0; font-size: 26px; letter-spacing: 0.5px; color: #ffd76a; font-family: 'Arial Black', Impact, sans-serif; }
+.tagline { margin: 0; color: #c9b8e8; }
+.group { background: #1b1030; border: 1px solid #3b2560; border-radius: 12px; padding: 14px; }
+.group h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #22d3ee; }
+.group label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; margin-bottom: 10px; }
+.hint { margin: 8px 0 0; color: #a894c9; font-size: 13px; }
+input[type=text], select { font: inherit; color: #f3eefc; background: #241640; padding: 8px 10px; border: 1px solid #4b2f7d; border-radius: 8px; }
+input[type=range] { accent-color: #ff7a2f; }
+button { font: inherit; font-weight: 700; padding: 9px 12px; border: 0; border-radius: 8px; background: #2c1a4d; color: #f3eefc; cursor: pointer; }
+button:hover { background: #3d2566; }
+.picker { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick { font-size: 13px; }
+.pick[aria-pressed="true"] { background: #ff7a2f; color: #1c0b33; }
+.photo-strip { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; min-height: 44px; margin-bottom: 10px; }
+.thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; border: 2px solid #ff7a2f; }
+.photo-count { color: #a894c9; font-size: 13px; }
+.file-button { display: inline-block; background: #ff7a2f; color: #1c0b33; font-weight: 700; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+.file-button input { display: none; }
+.sample-row { display: flex; gap: 8px; align-items: center; margin-top: 10px; color: #a894c9; font-size: 13px; }
+.panel-list { display: flex; flex-direction: column; gap: 8px; }
+.panel-row { display: flex; gap: 8px; align-items: center; background: #241640; border: 1px solid #3b2560; border-radius: 8px; padding: 8px; }
+.panel-row.selected { border-color: #ff7a2f; }
+.panel-row .panel-name { flex: 0 0 auto; }
+.panel-row select { flex: 1 1 auto; min-width: 0; padding: 6px; }
+.panel-row input[type=range] { flex: 1 1 80px; }
+.export-button { width: 100%; background: #ff7a2f; color: #1c0b33; font-size: 17px; padding: 12px; }
+.export-button:hover { background: #ffa25e; }
+.status { margin: 10px 0 0; color: #ffd76a; min-height: 1.4em; }
+.preview-pane { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+#coverPreview { width: 100%; height: auto; max-height: calc(100vh - 90px); object-fit: contain; border-radius: 12px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55); cursor: grab; touch-action: none; background: #160a26; }
+#coverPreview:active { cursor: grabbing; }
+.preview-hint { margin: 0; color: #a894c9; font-size: 13px; }
+body.shot-cover .controls, body.shot-cover .preview-hint { display: none; }
+body.shot-cover .studio { padding: 0; }
+body.shot-cover .preview-pane { flex: 1; }
+body.shot-cover #coverPreview { width: 100vw; height: 100vh; max-height: none; border-radius: 0; box-shadow: none; }
+@media (max-width: 900px) {
+  .studio { flex-direction: column; }
+  .controls { width: 100%; flex-basis: auto; }
+}
